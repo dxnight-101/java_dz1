@@ -1,20 +1,13 @@
 'use strict';
-function chisla(number) {
-  if (number < 2) {
-    return false;
-  }
-  for (var i = 2; i < number; i++) {
+for (let number = 2; number <= 100; number++) {
+  let isPrime = true;
+  for (let i = 2; i <= Math.sqrt(number); i++) {
     if (number % i === 0) {
-      return false;
+      isPrime = false;
+      break;
     }
   }
-  return true;
-}
-function printPrimes(start, end) {
-  for (var i = start; i <= end; i++) {
-    if (chisla(i)) {
-      console.log(i);
-    }
+  if (isPrime) {
+    console.log(number);
   }
 }
-printPrimes(1, 100);
